@@ -64,7 +64,7 @@ for col, state in enumerate(states):
 
 plt.tight_layout()
 
-save_dir = r'c:\Users\shizhaojialele\Desktop\PINN\图'
+save_dir = 'output/figures'
 os.makedirs(save_dir, exist_ok=True)
 plt.savefig(os.path.join(save_dir, 'Figure_10.png'), dpi=600, bbox_inches='tight')
 plt.savefig(os.path.join(save_dir, 'Figure_10.eps'), format='eps', bbox_inches='tight')

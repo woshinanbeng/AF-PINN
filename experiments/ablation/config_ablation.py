@@ -1,6 +1,6 @@
 """
 Ablation study: contribution of Fourier Features, Energy loss, and P_phi loss.
-Compares 4 configurations across 5 orbit types.
+Compares 4 configurations across 4 orbit types.
 """
 
 import torch
@@ -12,7 +12,6 @@ import sys
 import os
 import json
 import pickle
-import copy
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 from src.pinn_main import (
@@ -20,8 +19,6 @@ from src.pinn_main import (
     state_A, state_B, state_C, state_D,
     AblationPINN,
     train_pinn,
-    adaptive_weights, compute_losses,
-    classical_trajectory, t_max, Q_M, B0, q_safety, R0,
 )
 
 # ==========================================

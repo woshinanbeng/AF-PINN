@@ -93,7 +93,7 @@ for col, state in enumerate(states):
     ax.legend(loc='upper right', framealpha=0.9)
 
 plt.tight_layout()
-save_dir = r'c:\Users\shizhaojialele\Desktop\PINN\图全新'
+save_dir = 'output/figures'
 os.makedirs(save_dir, exist_ok=True)
 plt.savefig(os.path.join(save_dir, 'Figure_6.png'), dpi=300, bbox_inches='tight')
 plt.savefig(os.path.join(save_dir, 'Figure_6.eps'), format='eps', dpi=300, bbox_inches='tight')

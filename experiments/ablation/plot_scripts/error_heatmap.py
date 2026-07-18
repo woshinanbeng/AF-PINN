@@ -5,7 +5,7 @@ import os
 import matplotlib.colors as mcolors
 
 os.makedirs('advanced_plots', exist_ok=True)
-save_dir = r'c:\Users\shizhaojialele\Desktop\PINN\图全新'
+save_dir = 'output/figures'
 os.makedirs(save_dir, exist_ok=True)
 
 data_path = 'ablation_full_data.pkl'

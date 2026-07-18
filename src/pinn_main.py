@@ -434,7 +434,7 @@ def train_pinn(state, state_name, model_factory, *,
     _, X_base = classical_trajectory(state, [0, t_max], n_colloc)
     X_base_t = torch.tensor(X_base, dtype=torch.float64, device=device)
 
-    lam = {'r': 1.0, 'ic': 1.0, 'e': 1.0, 'p': 1.0}
+    lam = {'L_r': 1.0, 'L_ic': 1.0, 'L_E': 1.0, 'L_P': 1.0}
 
     loss_history = {
         'Epochs': [], 'L': [], 'L_ic': [], 'L_r': [],
@@ -459,9 +459,9 @@ def train_pinn(state, state_name, model_factory, *,
         if epoch % 1000 == 1:
             adaptive_weights(optimizer_adam, model, losses, lam)
 
-        total_loss = lam['r'] * losses['L_r'] + lam['ic'] * losses['L_ic']
-        if use_energy: total_loss = total_loss + lam['e'] * losses['L_E']
-        if use_pphi:   total_loss = total_loss + lam['p'] * losses['L_P']
+        total_loss = lam['L_r'] * losses['L_r'] + lam['L_ic'] * losses['L_ic']
+        if use_energy: total_loss = total_loss + lam['L_E'] * losses['L_E']
+        if use_pphi:   total_loss = total_loss + lam['L_P'] * losses['L_P']
 
         optimizer_adam.zero_grad()
         total_loss.backward()
@@ -502,9 +502,9 @@ def train_pinn(state, state_name, model_factory, *,
         optimizer_lbfgs.zero_grad()
         losses_c, _ = compute_losses(model, t_colloc, X0_t, V0_t, X_base_t,
                                      use_energy=use_energy, use_pphi=use_pphi)
-        loss_c = lam['r'] * losses_c['L_r'] + lam['ic'] * losses_c['L_ic']
-        if use_energy: loss_c = loss_c + lam['e'] * losses_c['L_E']
-        if use_pphi:   loss_c = loss_c + lam['p'] * losses_c['L_P']
+        loss_c = lam['L_r'] * losses_c['L_r'] + lam['L_ic'] * losses_c['L_ic']
+        if use_energy: loss_c = loss_c + lam['L_E'] * losses_c['L_E']
+        if use_pphi:   loss_c = loss_c + lam['L_P'] * losses_c['L_P']
         loss_c.backward()
         final_loss = loss_c.item()
         return loss_c

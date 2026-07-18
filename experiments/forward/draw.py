@@ -5,7 +5,7 @@ import os
 from mpl_toolkits.mplot3d import Axes3D
 
 os.makedirs('advanced_plots', exist_ok=True)
-save_dir = r'c:\Users\shizhaojialele\Desktop\PINN\图全新'
+save_dir = 'output/figures'
 os.makedirs(save_dir, exist_ok=True)
 
 data_path = 'forward_2500_full_data.pkl'
