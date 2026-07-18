@@ -1,0 +1,18 @@
+    Seed State                         Final Loss            MSE
+-----------------------------------------------------------------
+      12 A_Normal_Passing              5.8773e-02     6.6392e-09
+      12 B_OffAxis_Passing             2.3790e-01     3.0406e-07
+      12 C_Banana_Orbit                5.7280e-02     2.2426e-07
+      12 D_HFS_StrongGrad              8.3047e-02     2.1179e-07
+     123 A_Normal_Passing              3.5040e-02     6.7853e-09
+     123 B_OffAxis_Passing             6.0716e-02     3.1670e-07
+     123 C_Banana_Orbit                4.7206e-02     2.3522e-07
+     123 D_HFS_StrongGrad              6.3486e-02     7.6465e-08
+    1234 A_Normal_Passing              4.8945e-02     2.8789e-08
+    1234 B_OffAxis_Passing             5.8896e-02     2.4324e-07
+    1234 C_Banana_Orbit                2.7185e-02     2.3436e-07
+    1234 D_HFS_StrongGrad              1.5692e-01     9.5648e-08
+   12345 A_Normal_Passing              4.5273e-02     2.2982e-08
+   12345 B_OffAxis_Passing             7.9210e-02     1.2424e-07
+   12345 C_Banana_Orbit                1.1660e-01     2.4001e-07
+   12345 D_HFS_StrongGrad              9.7199e-02     6.8632e-08

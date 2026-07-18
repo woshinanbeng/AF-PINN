@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.zip
+paper_review/
+*.pptx
+*.docx
+*.pdf
+.DS_Store
+output/
+*.pkl
