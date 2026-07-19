@@ -33,7 +33,7 @@ q_over_m = 4.8e7
 norm_factor = 1e6
 Q_M = q_over_m / norm_factor
 interval = 4.147267104135095e-10 * norm_factor
-n_steps = 2500
+n_steps = 500
 t_max = n_steps * interval
 
 # Initial conditions (A-D: Normal Passing, Off-Axis Passing, Banana Orbit, HFS StrongGrad)
@@ -399,7 +399,7 @@ def adaptive_weights(optimizer, model, losses_dict, lam_dict, alpha_aw=0.2):
 
 def train_pinn(state, state_name, model_factory, *,
                use_energy=True, use_pphi=True,
-               max_epochs=100000, n_colloc=10000,
+               max_epochs=100000, n_colloc=2000,
                track_omega=False, save_weights=False,
                output_dir='results', lr=1e-3):
     """Unified training loop: Adam + L-BFGS.
@@ -525,11 +525,6 @@ def train_pinn(state, state_name, model_factory, *,
 
     elapsed = time.time() - t0_start
     print(f"  Done: Loss={final_loss:.2e} | Err={final_err:.2e} | Time={elapsed/60:.1f} min")
-
-    # Record final point
-    loss_history['Epochs'].append(max_epochs + 1)
-    loss_history['L'].append(final_loss)
-    loss_history['Error'].append(final_err)
 
     # Save weights
     if save_weights:
